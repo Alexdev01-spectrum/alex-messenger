@@ -175,6 +175,9 @@
                 
                 <div class="sidebar-section">
                     <h4><i class="fas fa-cog"></i> Settings</h4>
+                    <button onclick="showChangeNameModal()" class="sidebar-btn">
+                        <i class="fas fa-user-edit"></i> Change Display Name
+                    </button>
                     <button onclick="changeProfilePicture()" class="sidebar-btn">
                         <i class="fas fa-camera"></i> Change Profile Picture
                     </button>
@@ -196,6 +199,82 @@
                         <div class="developer-role">Lead Developer</div>
                         <div class="developer-message">
                             <i class="fas fa-heart" style="color: #ef4444;"></i> Mini Messenger v2.0
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="change-name-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fas fa-user-edit"></i> Change Display Name</h3>
+                    <button onclick="closeModal('change-name-modal')"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="current-name-display">
+                        <label>Current Name:</label>
+                        <span id="current-name-text"></span>
+                    </div>
+                    <input type="text" id="new-display-name" placeholder="Enter new name" class="modal-input" maxlength="30">
+                    <div class="modal-actions">
+                        <button onclick="updateDisplayName()" class="modal-btn primary">
+                            <i class="fas fa-save"></i> Save Changes
+                        </button>
+                        <button onclick="closeModal('change-name-modal')" class="modal-btn secondary">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="reaction-viewers-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="reaction-viewers-title">Reactions</h3>
+                    <button onclick="closeModal('reaction-viewers-modal')"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div id="reaction-viewers-list" class="users-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="user-info-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fas fa-id-card"></i> User Information</h3>
+                    <button onclick="closeModal('user-info-modal')"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body user-info-body">
+                    <div class="user-info-avatar">
+                        <img id="user-info-avatar" src="" alt="User Avatar">
+                    </div>
+                    <div class="user-info-details">
+                        <div class="info-row">
+                            <label><i class="fas fa-user"></i> Name:</label>
+                            <span id="user-info-name"></span>
+                        </div>
+                        <div class="info-row">
+                            <label><i class="fas fa-envelope"></i> Email:</label>
+                            <span id="user-info-email"></span>
+                        </div>
+                        <div class="info-row">
+                            <label><i class="fas fa-circle"></i> Status:</label>
+                            <span id="user-info-status"></span>
+                        </div>
+                        <div class="info-row">
+                            <label><i class="fas fa-clock"></i> Last Seen:</label>
+                            <span id="user-info-lastseen"></span>
+                        </div>
+                        <div class="info-row">
+                            <label><i class="fas fa-id-badge"></i> User ID:</label>
+                            <span id="user-info-uid" class="user-id-text"></span>
+                        </div>
+                        <div class="info-row">
+                            <label><i class="fas fa-calendar-plus"></i> Joined:</label>
+                            <span id="user-info-joined"></span>
                         </div>
                     </div>
                 </div>
@@ -391,7 +470,6 @@
     <script>
         function openBotChat() {
             const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
-
             window.location.href = `bot.html?userId=${currentUser.uid || ''}&userName=${encodeURIComponent(currentUser.displayName || 'User')}&userPfp=${encodeURIComponent(currentUser.photoURL || '')}`;
         }
     </script>
