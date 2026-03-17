@@ -1,13 +1,13 @@
 const firebaseConfig = {
-    apiKey: "PASTE_YOUR_API_KEY_HERE",
-    authDomain: "PASTE_YOUR_AUTH_DOMAIN_HERE",
-    projectId: "PASTE_YOUR_PROJECT_ID_HERE",
-    storageBucket: "PASTE_YOUR_STORAGE_BUCKET_HERE",
-    messagingSenderId: "PASTE_YOUR_SENDER_ID_HERE",
-    appId: "PASTE_YOUR_APP_ID_HERE"
+    apiKey: "AIzaSyAzN3Lu18BELypoUwOpOLDfE3McmjBtdQ8",
+    authDomain: "alexdev-messenger.firebaseapp.com",
+    projectId: "alexdev-messenger",
+    storageBucket: "alexdev-messenger.firebasestorage.app",
+    messagingSenderId: "52044505007",
+    appId: "1:52044505007:web:a5c9a8b6d1c20fa6bdd95a"
 };
 
-const IMGBB_API_KEY = "PASTE_YOUR_IMGBB_API_KEY_HERE";
+const IMGBB_API_KEY = "97efd7fd35da4b245039a37e6296ece4";
 
 firebase.initializeApp(firebaseConfig);
 
